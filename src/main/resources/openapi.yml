@@ -1,0 +1,67 @@
+openapi:  3.0.2
+info:
+    title: SPS Commerce Evaluation
+    description: "API spec for SPS Commerce Evaluation"
+    termsOfService: http://swagger.io/terms/
+    contact:
+        email: donald.kim@gmail.com
+    license:
+        name: Apache 2.0
+        url: http://www.apache.org/licenses/LICENSE-2.0.html
+    version: 0.0.1-SNAPSHOT
+externalDocs:
+    description: Something witty here
+    url: http://www.google.com
+servers:
+    - url: http://localhost:8080/api
+tags:
+    - name: organization
+      description: Operations for Organizations
+      externalDocs:
+          description: Find out more about Organizations
+          url: http://www.google.com
+    - name: product
+      description: Operations for Products
+      externalDocs:
+          description: Find out more about Organizations
+          url: http://www.google.com
+    - name: subscription
+      description: Operations for Organizations
+      externalDocs:
+          description: Find out more about Subscriptions
+          url: http://www.google.com
+paths:
+    /organization/{ID}:
+        get:
+            tags:
+                - organization
+            summary: Get organization by ID
+            operationId: getById
+            parameters:
+                - name: ID
+                  in: path
+                  description: 'The ID of the Organization to return'
+                  required: true
+                  schema:
+                      type: string
+            responses:
+                200:
+                    description: successful operation
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Organization'
+                404:
+                    description: Organization not found
+                    content: {}
+components:
+    schemas:
+        Organization:
+            type: object
+            properties:
+                id:
+                    type: string
+                Name:
+                    type: string
+
+
