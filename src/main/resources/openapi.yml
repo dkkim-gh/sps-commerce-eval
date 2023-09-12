@@ -63,5 +63,59 @@ components:
                     type: string
                 Name:
                     type: string
+                location:
+                    $ref: '#/components/schemas/Location'
+                subscriptions:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/Subscription'
+        Location:
+            type: object
+            properties:
+                address:
+                    type: string
+                city:
+                    type: string
+                state:
+                    type: string
+                zipCode:
+                    type: string
+        Product:
+            type: object
+            properties:
+                id:
+                    type: string
+                name:
+                    type: string
+                description:
+                    type: string
+                subproducts:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/Product'
+                price:
+                    type: number
+                    format: double
+        Subscription:
+            type: object
+            properties:
+                id:
+                    type: string
+                organization:
+                    $ref: '#/components/schemas/Organization'
+                products:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/Product'
+                discount:
+                    type: number
+                    format: double
+                totalPrice:
+                    type: number
+                    format: double
+
+
+
+
 
 
